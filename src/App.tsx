@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import FindCafe from './pages/MainHome/FindCafe';
+import FindCafe from './pages/FindCafe/FindCafe';
 
 function App() {
 	return (
