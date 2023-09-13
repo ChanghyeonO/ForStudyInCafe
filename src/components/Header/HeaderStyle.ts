@@ -5,9 +5,9 @@ export const HeaderContainer = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background-color: #333;
 	height: 8.5rem;
 	width: 100%;
+	border-bottom: 1px solid #555;
 `;
 
 // export const Title = styled.h1`
@@ -16,7 +16,7 @@ export const HeaderContainer = styled.div`
 // `;
 
 export const StyledLink = styled(Link)`
-	color: #fff;
+	color: #555;
 	text-decoration: none;
 	font-size: 3rem;
 	font-weight: bold;

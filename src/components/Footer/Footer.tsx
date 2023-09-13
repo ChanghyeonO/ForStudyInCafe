@@ -1,13 +1,20 @@
 import React from 'react';
 
-import { FooterContainer, MadeBy, Contact, StyledLink } from './FooterStyle';
+import {
+	FooterContainer,
+	Logo,
+	MadeBy,
+	Contact,
+	StyledLink,
+} from './FooterStyle';
 
 const Footer = () => {
 	return (
 		<>
 			<FooterContainer>
-				<MadeBy>만든이: 오창현</MadeBy>
+				<Logo>카가공Logo</Logo>
 				<Contact>
+					<MadeBy>만든이: 오창현</MadeBy>
 					<StyledLink to='https://www.instagram.com/5_changhyeon/'>
 						Instagram
 					</StyledLink>

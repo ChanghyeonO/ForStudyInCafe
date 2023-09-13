@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { Title } from './CafeMapStyle';
+import { Title } from './FindCafeStyle';
 
-const CafeMap = () => {
+const FindCafe = () => {
 	return (
 		<>
 			<Header />
@@ -12,4 +12,4 @@ const CafeMap = () => {
 		</>
 	);
 };
-export default CafeMap;
+export default FindCafe;
