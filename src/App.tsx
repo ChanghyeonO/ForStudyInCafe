@@ -1,12 +1,13 @@
 import React from 'react';
-import { Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import CafeMap from './pages/MainHome/CafeMap';
 
 function App() {
 	return (
 		<>
-			<h1>야호!</h1>
-
-			<Routes></Routes>
+			<Routes>
+				<Route path='/cafemap' element={<CafeMap />}></Route>
+			</Routes>
 		</>
 	);
 }
