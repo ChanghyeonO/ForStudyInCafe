@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.27"
+    "@types/styled-components": "^5.1.27",
+    "kakao.maps.d.ts": "^0.1.39"
   }
 }

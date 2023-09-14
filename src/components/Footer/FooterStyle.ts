@@ -7,8 +7,6 @@ export const FooterContainer = styled.div`
 	align-items: center;
 	background-color: #333;
 	height: 13rem;
-	position: fixed;
-	bottom: 0;
 	width: 100%;
 `;
 
