@@ -1,5 +1,15 @@
 import React, { useEffect } from 'react';
 import { propsType } from '../LandingPage';
+import {
+	MapContainer,
+	MapArea,
+	SearchResult,
+	ResultText,
+	ResultKeyword,
+	ScrollWrapper,
+	PlacesList,
+	Pagination,
+} from './MapStyle';
 
 interface placeType {
 	place_name: string;
@@ -80,7 +90,7 @@ const Map = (props: propsType) => {
 			// 지도에 표시되고 있는 마커를 제거
 			removeMarker();
 
-			for (var i = 0; i < places.length; i++) {
+			for (let i = 0; i < places.length; i++) {
 				// 마커를 생성하고 지도에 표시
 				let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
 					marker = addMarker(placePosition, i, undefined),
@@ -128,30 +138,30 @@ const Map = (props: propsType) => {
 		function getListItem(index: number, places: placeType) {
 			const el = document.createElement('li');
 			let itemStr = `
-          <div class="info">
-            <span class="marker marker_${index + 1}">
-              ${index + 1}
-            </span>
-            <a href="${places.place_url}">
-              <h5 class="info-item place-name">${places.place_name}</h5>
-              ${
+		      <div class="info">
+		        <span class="marker marker_${index + 1}">
+		          ${index + 1}
+		        </span>
+		        <a href="${places.place_url}">
+		          <h5 class="info-item place-name">${places.place_name}</h5>
+		          ${
 								places.road_address_name
 									? `<span class="info-item road-address-name">
-                    ${places.road_address_name}
-                   </span>
-                   <span class="info-item address-name">
-                 	 ${places.address_name}
-               	   </span>`
+		                ${places.road_address_name}
+		               </span>
+		               <span class="info-item address-name">
+		             	 ${places.address_name}
+		           	   </span>`
 									: `<span class="info-item address-name">
-             	     ${places.address_name}
-                  </span>`
+		         	     ${places.address_name}
+		              </span>`
 							}
-              <span class="info-item tel">
-                ${places.phone}
-              </span>
-            </a>
-          </div>
-          `;
+		          <span class="info-item tel">
+		            ${places.phone}
+		          </span>
+		        </a>
+		      </div>
+		      `;
 
 			el.innerHTML = itemStr;
 			el.className = 'item';
@@ -160,8 +170,8 @@ const Map = (props: propsType) => {
 		}
 
 		// 마커를 생성하고 지도 위에 마커를 표시하는 함수
-		function addMarker(position: any, idx: number, title: undefined) {
-			var imageSrc =
+		function addMarker(position: any, idx: number, _title: undefined) {
+			let imageSrc =
 					'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지
 				imageSize = new kakao.maps.Size(36, 37), // 마커 이미지의 크기
 				imgOptions = {
@@ -187,21 +197,21 @@ const Map = (props: propsType) => {
 
 		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
 		function removeMarker() {
-			for (var i = 0; i < markers.length; i++) {
+			for (let i = 0; i < markers.length; i++) {
 				markers[i].setMap(null);
 			}
 			markers = [];
 		}
 
-		// 검색결과 목록 하단에 페이지번호를 표시는 함수
+		// 검색결과 목록 하단에 페이지번호를 표시하는 함수
 		function displayPagination(pagination: {
 			last: number;
 			current: number;
 			gotoPage: (arg0: number) => void;
 		}) {
 			const paginationEl = document.getElementById('pagination') as HTMLElement;
-			let fragment = document.createDocumentFragment();
-			let i;
+			let fragment = document.createDocumentFragment(),
+				i;
 
 			// 기존에 추가된 페이지번호를 삭제
 			while (paginationEl.hasChildNodes()) {
@@ -250,19 +260,19 @@ const Map = (props: propsType) => {
 	}, [props.searchKeyword]);
 
 	return (
-		<div className='map-container'>
-			<div id='map' className='map'></div>
-			<div id='search-result'>
-				<p className='result-text'>
-					<span className='result-keyword'>{props.searchKeyword}</span>
-					검색 결과
-				</p>
-				<div className='scroll-wrapper'>
-					<ul id='places-list'></ul>
-				</div>
-				<div id='pagination'></div>
-			</div>
-		</div>
+		<MapContainer>
+			<MapArea id='map' />
+			<SearchResult>
+				<ResultText>
+					<ResultKeyword>{props.searchKeyword} </ResultKeyword>
+					검색결과
+				</ResultText>
+				<ScrollWrapper>
+					<PlacesList id='places-list' />
+				</ScrollWrapper>
+				<Pagination id='pagination' />
+			</SearchResult>
+		</MapContainer>
 	);
 };
 

@@ -61,6 +61,30 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, a, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Your Preferred Font Family';
+    vertical-align: baseline;
+    text-decoration: none;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  button {
+    cursor: pointer;
+    background: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

@@ -10,5 +10,5 @@ export const Title = styled.div`
 
 export const ContentArea = styled.div`
 	width: 100%;
-	height: 100rem;
+	height: 150rem;
 `;

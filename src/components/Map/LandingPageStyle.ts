@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SearchIcon from '../../assets/icons/search-ico.png';
 
 export const LandingPageContainer = styled.div`
 	width: 80%;
@@ -30,16 +31,15 @@ export const FormLabel = styled.label`
 
 export const FormInput = styled.input`
 	width: 50%;
-	height: 45px;
+	height: 5.5rem;
 	padding: 0 2rem;
 	font-size: 3rem;
 	line-height: 45px;
-	border-radius: 1.5rem;
-	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+	border: 2px solid #888;
+	border-radius: 1rem;
 
 	&:focus {
 		outline: none;
-		box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 	}
 `;
 
@@ -49,7 +49,10 @@ export const BtnBox = styled.div`
 
 export const SubmitBtn = styled.input`
 	width: 7rem;
-	height: 45px;
-	font-size: 3rem;
-	border-radius: 1rem;
+	margin-top: 3px;
+	height: 5.5rem;
+	border: none;
+	background: url(${SearchIcon}) center center no-repeat;
+	background-size: contain;
+	cursor: pointer;
 `;

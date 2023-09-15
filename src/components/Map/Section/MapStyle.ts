@@ -1,100 +1,124 @@
 import styled from 'styled-components';
+import SpotIcon from '../../../assets/icons/spot-ico.png';
 
 export const MapContainer = styled.div`
-	position: relative;
+	width: 100%;
+	display: flex;
+	margin-top: 5rem;
+`;
 
-	& .map {
-		width: 100%;
-		height: 250px;
-		border: 1px solid #eee;
-
-		& .marker-title {
-			display: block;
-			max-width: 140px;
-			font-weight: 700;
-			font-size: 0.75rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-
-	@media (min-width: 576px) {
-		& .map {
-			width: 60%;
-			height: 500px;
-		}
-	}
+export const MapArea = styled.div`
+	width: 100%;
+	height: 65rem;
 `;
 
 export const SearchResult = styled.div`
-	width: 100%;
-	height: 100%;
-
-	// ... (다른 코드)
-
-	@media (min-width: 576px) {
-		width: 40%;
-
-		& .scroll-wrapper {
-			height: 414px;
-		}
-
-		& .pagination {
-			position: static;
-		}
-	}
+	width: 30%;
+	align-items: center;
 `;
 
-// ... (다른 styled-components 정의)
+export const ResultText = styled.div`
+	font-size: 3rem;
+	margin-bottom: 2rem;
+	text-align: center;
+`;
 
-// 결과 키워드 부분
 export const ResultKeyword = styled.span`
-	margin-right: 0.25rem;
 	font-weight: 700;
 	color: #0f6fff;
 `;
 
-// ... (다른 styled-components 정의)
-
 // 스크롤 가능한 영역
 export const ScrollWrapper = styled.div`
-	height: calc(100vh - 336px);
-	padding-bottom: 47px;
+	height: 50rem;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background-color: #f3f3f3;
-	box-shadow: inset 0px 7px 9px -6px rgba(0, 0, 0, 0.1);
 `;
 
-// ... (다른 styled-components 정의)
+export const PlacesList = styled.ul`
+	.item {
+		.info {
+			position: relative;
+			padding-left: 7rem;
+			border-bottom: 1px solid #eee;
 
-// 페이지네이션 부분
-export const Pagination = styled.div`
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 47px;
-	padding: 0.5rem;
-	background-color: #ecf4f7;
-	box-shadow: 0 -4px 9px -3px rgba(0, 0, 0, 0.1);
+			.marker {
+				position: absolute;
+				left: 2rem;
+				top: 1.7rem;
+				width: 30px;
+				height: 30px;
+				padding-top: 1.3rem;
+				font-weight: 700;
+				font-size: 0.75rem;
+				color: #fff;
+				text-align: center;
+				background: url(${SpotIcon}) center center no-repeat;
+				background-size: 30px auto;
+			}
 
-	& a {
-		display: inline-block;
-		padding: 0.25rem 0.5rem;
-		font-weight: 200;
-		font-size: 0.875rem;
+			a {
+				display: block;
+				padding: 1rem;
 
-		& + a {
-			margin-left: 0.5rem;
-		}
+				.info-item {
+					display: block;
+					font-size: 0.7rem;
+					line-height: 1.6;
+				}
 
-		&.on {
-			font-weight: 700;
-			color: #0f6fff;
+				.place-name {
+					font-weight: bold;
+					color: #000;
+					font-size: 1.2rem;
+				}
+
+				.address-name {
+					position: relative;
+					padding-left: 24px;
+					color: #a8a8a8;
+
+					&::before {
+						content: '지번';
+						position: absolute;
+						left: 0;
+						top: 2px;
+						font-size: 1rem;
+						color: #fff;
+						text-align: center;
+						line-height: 14px;
+						background-color: #bbb;
+						border-radius: 4px;
+						width: 22px;
+						height: 14px;
+					}
+				}
+
+				.tel {
+					margin-top: 0.5rem;
+					color: #555;
+				}
+			}
 		}
 	}
 `;
 
-// ... (나머지 styled-components)
+// 페이지네이션 부분
+export const Pagination = styled.div`
+	display: flex;
+	justify-content: center;
+	padding: 4rem 0;
+	font-size: 2rem;
+
+	& a {
+		display: inline-block;
+		padding: 0 2rem;
+		font-weight: 200;
+		color: #888;
+
+		&.on {
+			font-weight: 700;
+			color: #000;
+		}
+	}
+`;

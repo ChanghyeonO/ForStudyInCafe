@@ -52,11 +52,11 @@ const LandingPage = () => {
 							type='text'
 							name='place'
 							onChange={keywordChange}
-							placeholder='검색어를 입력해주세요. (ex: 강남 맛집)'
+							placeholder='검색어를 입력해주세요. (ex: 강남 카페)'
 							required
 						/>
 						<BtnBox>
-							<SubmitBtn type='submit' value='검색' onClick={valueChecker} />
+							<SubmitBtn type='submit' value='' onClick={valueChecker} />
 						</BtnBox>
 					</FormLabel>
 				</SearchForm>
